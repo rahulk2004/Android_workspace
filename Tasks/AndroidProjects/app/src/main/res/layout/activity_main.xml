@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<RelativeLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:src="@drawable/nameplate"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/a1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/a1img" />
+
+    <TextView
+        android:id="@+id/a2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Vegitable Ghee"
+        android:layout_below="@+id/a1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/a3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/a2"
+        android:text="Price :  ₹ 50"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:id="@+id/b1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/a3"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/b1img" />
+
+    <TextView
+        android:id="@+id/b2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Chocolates"
+        android:layout_below="@+id/b1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/b3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/b2"
+        android:text="Price :  ₹ 80"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/b3"
+        android:id="@+id/c1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/c1img"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/c2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Milk Powder"
+        android:layout_below="@+id/c1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/c3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/c2"
+        android:text="Price :  ₹ 30"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/c3"
+        android:id="@+id/d1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/d1img"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/d2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/d1"
+        android:layout_marginTop="34dp"
+        android:text="Product : Mithai Mate"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/d3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/d2"
+        android:text="Price :  ₹ 120"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/d3"
+        android:id="@+id/e1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/e1img"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/e2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Sports Drink"
+        android:layout_below="@+id/e1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/e3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/e2"
+        android:text="Price :  ₹ 15"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/e3"
+        android:id="@+id/f1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/f1img"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/f2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Pure Honey"
+        android:layout_below="@+id/f1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/f3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/f2"
+        android:text="Price :  ₹ 330"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/f3"
+        android:id="@+id/g1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/g1img"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/g2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Beverages"
+        android:layout_below="@+id/g1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/g3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/g2"
+        android:text="Price :  ₹ 50"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/g3"
+        android:id="@+id/h1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/h1img"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/h2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Sweets"
+        android:layout_below="@+id/h1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/h3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/h2"
+        android:text="Price :  ₹ 180"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/h3"
+        android:id="@+id/i1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/i1img"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/i2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Panchamrut"
+        android:layout_below="@+id/i1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/i3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/i2"
+        android:text="Price : ₹ 200"
+        android:textAlignment="center"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/i3"
+        android:id="@+id/j1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/j1img"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/j2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Wiping Cream"
+        android:layout_below="@+id/j1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/j3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/j2"
+        android:text="Price :  ₹ 260"
+        android:textAlignment="center"
+        />
+
+
+
+
+    
+
+
+
+</RelativeLayout>
+</ScrollView>
