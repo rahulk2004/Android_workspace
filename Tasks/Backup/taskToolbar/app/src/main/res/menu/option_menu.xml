@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/i1"
+        android:title="Item"
+        android:icon="@drawable/baseline_call_24"
+        app:showAsAction="ifRoom"
+
+        />
+
+    <item android:id="@+id/i2" android:title="Kotlin" />
+    <item android:id="@+id/i3" android:title="Java" />
+    <item android:id="@+id/i4" android:title="Python" />
+    <item android:id="@+id/i5" android:title="C" />
+    <item android:id="@+id/i6" android:title="C++" />
+
+</menu>

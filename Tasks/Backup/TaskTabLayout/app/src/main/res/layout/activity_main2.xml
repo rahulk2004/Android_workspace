@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity2">
+
+
+    <ImageView
+        android:id="@+id/dpimg"
+
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/rimg"
+        android:layout_marginTop="40dp"
+        />
+
+
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name "
+        />
+
+    <TextView
+        android:id="@+id/dpnm"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rahul Ahir Kanara"
+        android:textSize="20dp"
+        />
+
+
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone "
+        />
+    <TextView
+        android:id="@+id/dpnum"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+91 898007384"
+        android:textSize="20dp"
+        />
+
+
+
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Country "
+        />
+    <TextView
+        android:id="@+id/dpcntry"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="India"
+        />
+
+</LinearLayout>

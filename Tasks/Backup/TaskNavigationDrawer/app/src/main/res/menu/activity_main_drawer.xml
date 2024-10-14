@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/javalogo"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_Java"
+            android:icon="@drawable/javalogo"
+            android:title="@string/menu_java" />
+        <item
+            android:id="@+id/nav_Kotlin"
+            android:icon="@drawable/kotlinlogo"
+            android:title="@string/menu_kotlin" />
+        <item
+            android:id="@+id/nav_Php"
+            android:icon="@drawable/phplogo"
+            android:title="@string/menu_php" />
+        <item
+            android:id="@+id/nav_Ios"
+            android:icon="@drawable/ioslogo"
+            android:title="@string/menu_ios" />
+    </group>
+</menu>

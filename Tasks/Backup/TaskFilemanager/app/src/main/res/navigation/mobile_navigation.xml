@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_image">
+
+    <fragment
+        android:id="@+id/navigation_image"
+        android:name="com.example.taskfilemanager.ImageFragment"
+        android:label="@string/title_Image"
+        tools:layout="@layout/fragment_image" />
+
+    <fragment
+        android:id="@+id/navigation_music"
+        android:name="com.example.taskfilemanager.MusicFragment"
+        android:label="@string/title_Music"
+        tools:layout="@layout/fragment_music" />
+
+    <fragment
+        android:id="@+id/navigation_video"
+        android:name="com.example.taskfilemanager.VideoFragment"
+        android:label="@string/title_Video"
+        tools:layout="@layout/fragment_video" />
+
+    <fragment
+        android:id="@+id/navigation_document"
+        android:name="com.example.taskfilemanager.DocumentFragment"
+        android:label="@string/title_Document"
+        tools:layout="@layout/fragment_document" />
+
+</navigation>

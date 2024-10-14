@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity9">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:src="@drawable/nameplate"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+
+        android:id="@+id/h1"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/h1img"
+        android:layout_marginTop="75dp"
+        />
+    <TextView
+        android:id="@+id/h2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Product : Sweets"
+        android:layout_below="@+id/h1"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/h3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/h2"
+        android:text="Price :  ₹ 180"
+        android:textAlignment="center"
+        />
+
+</RelativeLayout>

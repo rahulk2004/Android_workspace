@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Ads Cafe "
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#FF5722"/>
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Call : 8980073845"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_below="@id/t1"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+
+
+            />
+
+        <TextView
+            android:id="@+id/t3"
+            android:layout_below="@id/t2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GoTo Website "
+            android:tooltipText="www.tops.com"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#0EE017"
+
+            />
+
+
+
+        <ImageView
+            android:id="@+id/a1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/t3"
+            android:src="@drawable/p1img"
+
+            />
+        <TextView
+            android:id="@+id/a2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/a1"
+            android:text="Disha Name : Pizza"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+
+        <ImageView
+            android:id="@+id/b1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/a2"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/p2img" />
+
+        <TextView
+            android:id="@+id/b2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/b1"
+            android:text="Disha Name : Burger"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/c1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/b2"
+            android:src="@drawable/p3img"
+            />
+        <TextView
+            android:id="@+id/c2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/c1"
+            android:text="Disha Name : French Fries"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+
+
+
+        <ImageView
+            android:id="@+id/d1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/c2"
+            android:src="@drawable/p4img"
+            />
+        <TextView
+            android:id="@+id/d2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/d1"
+            android:text="Disha Name : Sandwich"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+
+
+
+        <ImageView
+            android:id="@+id/e1"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_below="@+id/d2"
+            android:src="@drawable/p5img"
+
+            />
+        <TextView
+            android:id="@+id/e2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/e1"
+            android:text="Disha Name : Maggie "
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+
+
+
+        <ImageView
+            android:id="@+id/f1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/e2"
+            android:src="@drawable/p6img"
+            />
+        <TextView
+            android:id="@+id/f2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/f1"
+            android:text="Disha Name : Coffie"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+</ScrollView>
