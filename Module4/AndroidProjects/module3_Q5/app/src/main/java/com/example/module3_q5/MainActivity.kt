@@ -17,6 +17,14 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
+//    Create an application to load google url into webview also manage forward
+//    and backward redirect
+
+//    In Previous Practical write code to check weather internet connection is
+//    available or not if
+
+//     no internet connection then display message accordingly
+
     lateinit var webView: WebView
     lateinit var btnBack: Button
     lateinit var btnForward: Button
@@ -33,7 +41,6 @@ class MainActivity : AppCompatActivity() {
 
         btnBack = findViewById(R.id.btnBack)
         btnForward = findViewById(R.id.btnForward)
-
 
 
         webView = findViewById(R.id.web)

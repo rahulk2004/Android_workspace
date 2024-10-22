@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">module3_Q13</string>
+    <string-array name="my_string_array">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+    </string-array>
+</resources>

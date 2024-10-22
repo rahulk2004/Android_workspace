@@ -11,6 +11,8 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
+// Q11  Create an application to display Textview when checkbox is checked and hide otherwise
+
     lateinit var txt1:TextView
     lateinit var chk1:CheckBox
 

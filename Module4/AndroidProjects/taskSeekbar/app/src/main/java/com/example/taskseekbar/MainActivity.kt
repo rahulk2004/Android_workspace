@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
 
+//  Q15  Write a program in android display screen color which the Color will be select from the radio button.
+
     lateinit var linearLayout: LinearLayout
     lateinit var seek1:SeekBar
     lateinit var seek2:SeekBar

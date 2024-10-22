@@ -1,5 +1,6 @@
 package com.example.module3_q10
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -11,10 +12,13 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-     lateinit var editTextNumber: EditText
-     lateinit var buttonGenerate: Button
-     lateinit var editTextContainer: LinearLayout
+//  Q10 create an application to display n edittext where n is number input by user
 
+    lateinit var edt1: EditText
+     lateinit var btn1: Button
+     lateinit var txt: LinearLayout
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,11 +29,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        editTextNumber = findViewById(R.id.editTextNumber)
-        buttonGenerate = findViewById(R.id.buttonGenerate)
-        editTextContainer = findViewById(R.id.editTextContainer)
+        edt1 = findViewById(R.id.edt1)
+        btn1 = findViewById(R.id.btn1)
+        txt = findViewById(R.id.txt)
 
-        buttonGenerate.setOnClickListener{
+        btn1.setOnClickListener{
 
             generateEditTexts()
 
@@ -40,17 +44,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun generateEditTexts() {
-        // Clear existing EditTexts
-        editTextContainer.removeAllViews()
 
-        // Get the number input by the user
-        val numberOfEditTexts = editTextNumber.text.toString().toIntOrNull()
+        txt.removeAllViews()
+
+        val numberOfEditTexts = edt1.text.toString().toIntOrNull()
 
         if (numberOfEditTexts != null && numberOfEditTexts > 0) {
             for (i in 1..numberOfEditTexts) {
                 val editText = EditText(this)
-                editText.hint = "EditText $i"
-                editTextContainer.addView(editText)
+                editText.hint = "EditText"
+                txt.addView(editText)
             }
         }
     }

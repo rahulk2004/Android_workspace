@@ -11,6 +11,8 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
+//  Q6 create an application to hide TextView when first button click and show when second button click
+
     lateinit var txt1:TextView
     lateinit var btn1:Button
     lateinit var btn2:Button

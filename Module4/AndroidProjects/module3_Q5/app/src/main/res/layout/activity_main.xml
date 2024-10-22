@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Forward" />
     </LinearLayout>
+
     <WebView
         android:id="@+id/web"
         android:layout_width="match_parent"

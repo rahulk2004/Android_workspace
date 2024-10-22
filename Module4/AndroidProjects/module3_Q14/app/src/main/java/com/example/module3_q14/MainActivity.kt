@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
+//  Q14  Write a program in android display screen color which the Color will be select from the radio button.
+
     lateinit var btn1:RadioButton
     lateinit var btn2:RadioButton
     lateinit var btn3:RadioButton

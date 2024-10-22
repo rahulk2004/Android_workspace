@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.taskdbms1"
+    namespace = "com.example.task1"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.taskdbms1"
+        applicationId = "com.example.task1"
         minSdk = 23
         targetSdk = 34
         versionCode = 1

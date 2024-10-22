@@ -3,16 +3,18 @@ package com.example.module3_q8
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-
 class MainActivity : AppCompatActivity() {
 
-    lateinit var btn :Button
+// Q8 create an application to open pdf using implicit intent
+
+    lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,22 +26,14 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        btn = findViewById(R.id.pdf)
 
-        btn.setOnClickListener{
+        button = findViewById(R.id.btn)
 
-            viewpdf()
-        }
-    }
-
-    fun viewpdf(){
-
-        val value = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(value))
-
-
-        // start activity
-        startActivity(intent)
-
+        button.setOnClickListener(View.OnClickListener {
+            val url = "http://www.pdf995.com/samples/pdf.pdf"
+            val im = Intent(Intent.ACTION_VIEW)
+            im.setData(Uri.parse(url))
+            startActivity(im)
+        })
     }
 }
