@@ -5,8 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".MainActivity">
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/f1"
@@ -18,11 +24,6 @@
         android:layout_marginRight="25dp"
         android:src="@drawable/ic_launcher_background"
         />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
 
 

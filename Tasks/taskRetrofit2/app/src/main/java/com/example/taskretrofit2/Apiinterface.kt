@@ -18,8 +18,11 @@ interface Apiinterface {
         @Field("password") password:String,
 
         ): Call<Void>
+
+
     @GET("userview.php")
     fun getdata():Call<List<Model>>
+
 
     @FormUrlEncoded
     @POST("userupdate.php")
@@ -30,10 +33,17 @@ interface Apiinterface {
         @Field("surname") surname:String,
         @Field("email") email:String,
         @Field("password") password:String,
-
         ): Call<Void>
+
 
     @FormUrlEncoded
     @POST("userdelete.php")
     fun deletedata(@Field("id")id:Int):Call<Void?>?
+
+    @FormUrlEncoded
+    @POST("userlogin.php")
+    fun logindata(
+        @Field("e1") email: String?,
+        @Field("p1") password: String?,
+    ):Call<Model>
 }

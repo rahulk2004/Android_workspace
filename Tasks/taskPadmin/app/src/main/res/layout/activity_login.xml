@@ -55,8 +55,7 @@
                 android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:backgroundTint="#DDDDDD"
-                android:layout_marginTop="16dp"
-                android:inputType="numberPassword" />
+                android:layout_marginTop="16dp" />
 
 
             <Button

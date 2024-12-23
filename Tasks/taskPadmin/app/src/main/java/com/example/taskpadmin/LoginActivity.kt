@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
             var pass = edt2.text.toString()
 
             var stringrequest: StringRequest = object : StringRequest(
-                Request.Method.POST, "https://prakrutitech.buzz/Rahul/userlogin.php", { response ->
+                Request.Method.POST, "https://prakrutitech.buzz/Rahul/adminlogin.php", { response ->
 
                     try {
                         if (response.trim().equals("0")) {

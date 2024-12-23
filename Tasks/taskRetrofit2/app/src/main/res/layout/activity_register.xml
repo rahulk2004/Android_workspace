@@ -37,14 +37,14 @@
         />
 
     <Button
-        android:id="@+id/btn1"
+        android:id="@+id/btnsignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SIGNUP"
         />
 
     <Button
-        android:id="@+id/btn2"
+        android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Do you want to login"

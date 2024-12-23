@@ -21,18 +21,11 @@
 
 
 
-    <GridView
-        android:id="@+id/gridview"
+
+    <FrameLayout
+        android:id="@+id/frmid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="2"
-        android:columnWidth="0dp"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="15dp"
-        android:horizontalSpacing="15dp"
-        android:layout_gravity="center"
-        android:padding="8dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         />
 
 

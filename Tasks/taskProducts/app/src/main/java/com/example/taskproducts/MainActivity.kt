@@ -1,5 +1,6 @@
 package com.example.taskproducts
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -7,10 +8,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.GridView
 import android.widget.ListView
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -22,13 +26,13 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var toolbar: Toolbar
     lateinit var sharedPreferences: SharedPreferences
     lateinit var listView: GridView
     lateinit var list: MutableList<Model>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,55 +46,18 @@ class MainActivity : AppCompatActivity() {
 
         toolbar = findViewById(R.id.tool)
 
+
+
         setSupportActionBar(toolbar)
-        listView = findViewById(R.id.gridview)
-        list = ArrayList()
+
 
         sharedPreferences = getSharedPreferences("tops", MODE_PRIVATE)
 
+        var f1 = AllFragment()
+        var fm = supportFragmentManager
+        var ft = fm.beginTransaction()
+        ft.replace(R.id.frmid,f1).commit()
 
-        var stringRequest = StringRequest(
-            Request.Method.GET,"https://prakrutitech.buzz/Rahul/view.php",
-            object: Response.Listener<String>
-            {
-                override fun onResponse(response: String?) {
-                    var jsonarray = JSONArray(response)
-                    for (i in 0 until jsonarray.length())
-                    {
-                        var jsonObject = jsonarray.getJSONObject(i)
-
-                        var name = jsonObject.getString("pname")
-                        var price = jsonObject.getString("pprice")
-                        var status = jsonObject.getString("pstatus")
-                        var desc = jsonObject.getString("pdesc")
-                        var image = jsonObject.getString("pimage")
-
-                        var m = Model()
-                        m.name = name
-                        m.price = price
-                        m.status = status
-                        m.desc = desc
-                        m.image = image
-
-                        list.add(m)
-                    }
-
-                    var myadapter = MyAdapter(applicationContext,list)
-                    listView.adapter = myadapter
-                }
-            },
-            object : Response.ErrorListener
-            {
-                override fun onErrorResponse(error: VolleyError?) {
-                    Toast.makeText(applicationContext, "No Internet", Toast.LENGTH_SHORT).show()
-                }
-
-            }
-
-        )
-
-        var queue: RequestQueue = Volley.newRequestQueue(this)
-        queue.add(stringRequest)
 
     }
 
@@ -111,6 +78,34 @@ class MainActivity : AppCompatActivity() {
                 var i = Intent(applicationContext,LoginActivity::class.java)
                 startActivity(i)
                 finish()
+            }
+
+            R.id.i2 ->
+            {
+                //var dialog = Dialog()
+                var alertDialog = AlertDialog.Builder(this)
+
+
+                alertDialog.setPositiveButton("Low to High",{ dialogInterface: DialogInterface, i: Int ->
+
+                    var f1 = LtoHFragment()
+                    var fm = supportFragmentManager
+                    var ft = fm.beginTransaction()
+                    ft.replace(R.id.frmid,f1).commit()
+
+                })
+
+                alertDialog.setNegativeButton("High to Low",{ dialogInterface: DialogInterface, i: Int ->
+
+
+                    var f1 = HtoLFragment()
+                    var fm = supportFragmentManager
+                    var ft = fm.beginTransaction()
+                    ft.replace(R.id.frmid,f1).commit()
+
+                })
+
+                alertDialog.show()
             }
 
         }
