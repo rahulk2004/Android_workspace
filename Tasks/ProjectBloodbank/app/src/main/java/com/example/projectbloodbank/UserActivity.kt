@@ -6,31 +6,28 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
-import android.Manifest
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.projectbloodbank.databinding.ActivityAddBloodReqBinding
 import com.example.projectbloodbank.databinding.ActivityMainBinding
-import com.example.projectbloodbank.databinding.ActivityRegisterBinding
+import com.example.projectbloodbank.databinding.ActivityUserBinding
 
-class MainActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityUserBinding
     private lateinit var sharedPreferences: SharedPreferences
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        binding = ActivityUserBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
         sharedPreferences = getSharedPreferences("BloodBankPrefs", MODE_PRIVATE)
+
 
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
 
@@ -41,14 +38,8 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        binding.addDonorLayout.setOnClickListener {
-
-            startActivity(Intent(this,AddDonerActivity::class.java))
-        }
-
-        binding.searchDonorLayout.setOnClickListener {
-
-            startActivity(Intent(this, DonorActivity::class.java))
+        binding.logout.setOnClickListener {
+            showLogoutConfirmationDialog()
         }
 
         binding.bloodRequestLayout.setOnClickListener {
@@ -58,16 +49,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.bloodBanksLayout.setOnClickListener {
 
-            startActivity(Intent(this, BloodbankActivity::class.java))
-        }
-
-        binding.logout.setOnClickListener {
-            showLogoutConfirmationDialog()
+            startActivity(Intent(this,BloodbankActivity::class.java))
         }
 
         binding.callButton.setOnClickListener {
             makeEmergencyCall()
         }
+
 
     }
 
@@ -97,6 +85,7 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Yes") { dialog, id ->
 
                 sharedPreferences.edit().clear().apply()
+
 
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()

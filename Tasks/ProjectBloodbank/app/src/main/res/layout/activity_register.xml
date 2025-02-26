@@ -64,32 +64,10 @@
 
 
             <EditText
-                android:id="@+id/mobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Mobile No."
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:backgroundTint="#DDDDDD"
-                android:inputType="text" />
-
-
-            <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:backgroundTint="#DDDDDD"
-                android:layout_marginTop="16dp"
-                android:inputType="numberPassword" />
-
-            <EditText
-                android:id="@+id/cpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Confirm Password"
                 android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:backgroundTint="#DDDDDD"
