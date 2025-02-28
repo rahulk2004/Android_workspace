@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light_gray"
+    tools:context=".FilterLtoHActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_blue"
+        app:subtitleTextColor="@color/white"
+        app:layout_collapseMode="pin"
+        tools:ignore="MissingClass" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/src"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        />
+
+    <Spinner
+        android:id="@+id/dropdw"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+
+
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:columnWidth="0dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="15dp"
+        android:horizontalSpacing="15dp"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:background="@color/white"
+        />
+
+
+
+
+</LinearLayout>
+
+

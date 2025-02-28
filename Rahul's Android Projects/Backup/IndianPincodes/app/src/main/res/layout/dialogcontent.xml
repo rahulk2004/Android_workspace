@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/upincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Pincode"
+            android:inputType="number"
+            android:maxLength="6"/>
+
+        <EditText
+            android:id="@+id/uofficename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Office Name"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/udistrict"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update District"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/ustate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update State"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/utaluka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Taluka"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/utel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Telephone"
+            android:inputType="phone"
+            android:maxLength="10"/>
+
+        <EditText
+            android:id="@+id/uheadoffice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Head Office"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/udivision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Division"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/uregion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Region"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/ucircle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Circle"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/uofficetype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Office Type (H.O, S.O, B.O)"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/udeliverystatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update Delivery Status (Delivery/Non-Delivery)"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/usubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</ScrollView>
