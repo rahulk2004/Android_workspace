@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/edtpincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Pincode"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/edtofficename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Office Name"/>
+
+        <EditText
+            android:id="@+id/edttaluka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Taluka"/>
+
+        <EditText
+            android:id="@+id/edtdistrict"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter District"/>
+
+        <EditText
+            android:id="@+id/edtstate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter State"/>
+
+
+
+        <EditText
+            android:id="@+id/edttel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Telephone Number"
+            android:inputType="phone"/>
+
+        <EditText
+            android:id="@+id/edtheadoffice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Head Office"/>
+
+        <EditText
+            android:id="@+id/edtdivision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Division"/>
+
+        <EditText
+            android:id="@+id/edtregion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Region"/>
+
+        <EditText
+            android:id="@+id/edtcircle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Circle"/>
+
+        <EditText
+            android:id="@+id/edtofficetype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Office Type (H.O, S.O, B.O)"/>
+
+        <EditText
+            android:id="@+id/edtdeliverystatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Delivery Status (Delivery/Non-Delivery)"/>
+        <Button
+            android:id="@+id/btnadd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Pincode"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
