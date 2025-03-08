@@ -1,1 +1,50 @@
-hello
+class SongsAdapter(
+    private val context: Context,
+    private val songsList: List<SongModel>
+) : RecyclerView.Adapter<SongsAdapter.SongViewHolder>() {
+
+    private var mediaPlayer: MediaPlayer? = null
+    private var currentlyPlayingPosition: Int = -1
+
+    inner class SongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val songTitle: TextView = itemView.findViewById(R.id.songTitle)
+        val playButton: Button = itemView.findViewById(R.id.playButton)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.item_song, parent, false)
+        return SongViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
+        val song = songsList[position]
+        holder.songTitle.text = song.title
+
+        holder.playButton.setOnClickListener {
+            if (currentlyPlayingPosition == position) {
+                // If the same song is clicked again, pause it
+                mediaPlayer?.pause()
+                mediaPlayer?.release()
+                mediaPlayer = null
+                currentlyPlayingPosition = -1
+                holder.playButton.text = "Play"
+            } else {
+                // Stop the previously playing song
+                mediaPlayer?.release()
+                mediaPlayer = null
+
+                // Start the new song
+                mediaPlayer = MediaPlayer().apply {
+                    setDataSource(song.url) // Set the song URL or file path
+                    prepare()
+                    start()
+                }
+
+                currentlyPlayingPosition = position
+                holder.playButton.text = "Pause"
+            }
+        }
+    }
+
+    override fun getItemCount(): Int = songsList.size
+}
