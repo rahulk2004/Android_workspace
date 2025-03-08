@@ -48,3 +48,69 @@ class SongsAdapter(
 
     override fun getItemCount(): Int = songsList.size
 }
+
+
+
+// another method
+
+
+
+class SongsAdapter(
+    private val context: Context,
+    private val songsList: MutableList<SongModel> // Mutable to update states
+) : RecyclerView.Adapter<SongsAdapter.SongViewHolder>() {
+
+    private var mediaPlayer: MediaPlayer? = null
+    private var currentlyPlayingPosition: Int = -1
+
+    inner class SongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val songTitle: TextView = itemView.findViewById(R.id.songTitle)
+        val playButton: Button = itemView.findViewById(R.id.playButton)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.item_song, parent, false)
+        return SongViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
+        val song = songsList[position]
+
+        holder.songTitle.text = song.title
+        holder.playButton.text = if (song.isPlaying) "Pause" else "Play"
+
+        holder.playButton.setOnClickListener {
+            if (song.isPlaying) {
+                // If the same song is clicked again, pause it
+                mediaPlayer?.pause()
+                mediaPlayer?.release()
+                mediaPlayer = null
+                songsList[position].isPlaying = false
+                currentlyPlayingPosition = -1
+            } else {
+                // Stop the previously playing song
+                if (currentlyPlayingPosition != -1) {
+                    songsList[currentlyPlayingPosition].isPlaying = false
+                    notifyItemChanged(currentlyPlayingPosition)
+                }
+
+                mediaPlayer?.release()
+                mediaPlayer = null
+
+                // Start the new song
+                mediaPlayer = MediaPlayer().apply {
+                    setDataSource(song.url)
+                    prepare()
+                    start()
+                }
+
+                songsList[position].isPlaying = true
+                currentlyPlayingPosition = position
+            }
+
+            notifyItemChanged(position)
+        }
+    }
+
+    override fun getItemCount(): Int = songsList.size
+}
