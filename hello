@@ -1,116 +1,56 @@
-class SongsAdapter(
-    private val context: Context,
-    private val songsList: List<SongModel>
-) : RecyclerView.Adapter<SongsAdapter.SongViewHolder>() {
+class MusicPlayerActivity : AppCompatActivity() {
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var seekBar: SeekBar
+    private lateinit var handler: Handler
+    private lateinit var runnable: Runnable
+    private lateinit var startTimeTextView: TextView  // To display start time
 
-    private var mediaPlayer: MediaPlayer? = null
-    private var currentlyPlayingPosition: Int = -1
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_music_player)
 
-    inner class SongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val songTitle: TextView = itemView.findViewById(R.id.songTitle)
-        val playButton: Button = itemView.findViewById(R.id.playButton)
-    }
+        seekBar = findViewById(R.id.seekBar)
+        startTimeTextView = findViewById(R.id.startTimeTextView) // Your TextView for start time
+        mediaPlayer = MediaPlayer.create(this, R.raw.sample_audio)
+        handler = Handler(Looper.getMainLooper())
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_song, parent, false)
-        return SongViewHolder(view)
-    }
+        seekBar.max = mediaPlayer.duration
 
-    override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
-        val song = songsList[position]
-        holder.songTitle.text = song.title
+        // Ensure start time updates when song starts
+        mediaPlayer.setOnPreparedListener {
+            seekBar.progress = 0
+            startTimeTextView.text = formatTime(0) // Update start time to 00:00
+            updateSeekBar()
+        }
 
-        holder.playButton.setOnClickListener {
-            if (currentlyPlayingPosition == position) {
-                // If the same song is clicked again, pause it
-                mediaPlayer?.pause()
-                mediaPlayer?.release()
-                mediaPlayer = null
-                currentlyPlayingPosition = -1
-                holder.playButton.text = "Play"
-            } else {
-                // Stop the previously playing song
-                mediaPlayer?.release()
-                mediaPlayer = null
-
-                // Start the new song
-                mediaPlayer = MediaPlayer().apply {
-                    setDataSource(song.url) // Set the song URL or file path
-                    prepare()
-                    start()
-                }
-
-                currentlyPlayingPosition = position
-                holder.playButton.text = "Pause"
+        findViewById<Button>(R.id.playButton).setOnClickListener {
+            if (!mediaPlayer.isPlaying) {
+                mediaPlayer.start()
+                updateSeekBar() // Ensure seekbar updates immediately
             }
         }
     }
 
-    override fun getItemCount(): Int = songsList.size
-}
-
-
-
-// another method
-
-
-
-class SongsAdapter(
-    private val context: Context,
-    private val songsList: MutableList<SongModel> // Mutable to update states
-) : RecyclerView.Adapter<SongsAdapter.SongViewHolder>() {
-
-    private var mediaPlayer: MediaPlayer? = null
-    private var currentlyPlayingPosition: Int = -1
-
-    inner class SongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val songTitle: TextView = itemView.findViewById(R.id.songTitle)
-        val playButton: Button = itemView.findViewById(R.id.playButton)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_song, parent, false)
-        return SongViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
-        val song = songsList[position]
-
-        holder.songTitle.text = song.title
-        holder.playButton.text = if (song.isPlaying) "Pause" else "Play"
-
-        holder.playButton.setOnClickListener {
-            if (song.isPlaying) {
-                // If the same song is clicked again, pause it
-                mediaPlayer?.pause()
-                mediaPlayer?.release()
-                mediaPlayer = null
-                songsList[position].isPlaying = false
-                currentlyPlayingPosition = -1
-            } else {
-                // Stop the previously playing song
-                if (currentlyPlayingPosition != -1) {
-                    songsList[currentlyPlayingPosition].isPlaying = false
-                    notifyItemChanged(currentlyPlayingPosition)
-                }
-
-                mediaPlayer?.release()
-                mediaPlayer = null
-
-                // Start the new song
-                mediaPlayer = MediaPlayer().apply {
-                    setDataSource(song.url)
-                    prepare()
-                    start()
-                }
-
-                songsList[position].isPlaying = true
-                currentlyPlayingPosition = position
+    private fun updateSeekBar() {
+        runnable = object : Runnable {
+            override fun run() {
+                seekBar.progress = mediaPlayer.currentPosition
+                startTimeTextView.text = formatTime(mediaPlayer.currentPosition) // Update start time
+                handler.postDelayed(this, 500)
             }
-
-            notifyItemChanged(position)
         }
+        handler.postDelayed(runnable, 0) // Start updating immediately
     }
 
-    override fun getItemCount(): Int = songsList.size
+    private fun formatTime(ms: Int): String {
+        val minutes = (ms / 1000) / 60
+        val seconds = (ms / 1000) % 60
+        return String.format("%02d:%02d", minutes, seconds)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacks(runnable)
+        mediaPlayer.release()
+    }
 }
