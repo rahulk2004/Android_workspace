@@ -45,3 +45,50 @@ override fun onCreate(savedInstanceState: Bundle?) {
         replaceFragment(HomeFragment()) // Default fragment
     }
 }
+
+
+
+//
+fun replaceFragment(fragment: Fragment) {
+    supportFragmentManager.beginTransaction()
+        .replace(R.id.fragmentContainer, fragment)
+        .commit()
+
+    // Change BottomNavBar color based on fragment
+    if (fragment is SleepFragment) {
+        binding.bottomNavigationView.setBackgroundColor(ContextCompat.getColor(this, R.color.sleepFragmentColor))
+    } else {
+        binding.bottomNavigationView.setBackgroundColor(ContextCompat.getColor(this, R.color.defaultNavBarColor))
+    }
+}
+
+binding.bottomNavigationView.setOnItemSelectedListener { item ->
+    when (item.itemId) {
+        R.id.homeFragment -> {
+            replaceFragment(HomeFragment())
+            true
+        }
+        R.id.sleepFragment -> {
+            startActivity(Intent(this, GetStartedActivity::class.java))
+            return@setOnItemSelectedListener false // Stop BottomNav from switching immediately
+        }
+        else -> false
+    }
+}
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+
+    val navigateTo = intent.getStringExtra("navigateTo")
+    if (navigateTo == "sleepFragment") {
+        replaceFragment(SleepFragment())
+        binding.bottomNavigationView.selectedItemId = R.id.sleepFragment
+        binding.bottomNavigationView.setBackgroundColor(ContextCompat.getColor(this, R.color.sleepFragmentColor))
+    } else {
+        replaceFragment(HomeFragment())
+    }
+}
+
+<color name="sleepFragmentColor">#FF5722</color> <!-- Example Orange -->
+<color name="defaultNavBarColor">#FFFFFF</color>  <!-- Default White -->
