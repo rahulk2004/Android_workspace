@@ -1,56 +1,47 @@
-class MusicPlayerActivity : AppCompatActivity() {
-    private lateinit var mediaPlayer: MediaPlayer
-    private lateinit var seekBar: SeekBar
-    private lateinit var handler: Handler
-    private lateinit var runnable: Runnable
-    private lateinit var startTimeTextView: TextView  // To display start time
+binding.bottomNavigationView.setOnItemSelectedListener { item ->
+    when (item.itemId) {
+        R.id.homeFragment -> {
+            replaceFragment(HomeFragment())
+            true
+        }
+        R.id.sleepFragment -> {
+            startActivity(Intent(this, GetStartedActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) // Optional animation
+            return@setOnItemSelectedListener false // Stop BottomNav from switching
+        }
+        else -> false
+    }
+}
 
+
+
+class GetStartedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_music_player)
+        setContentView(R.layout.activity_get_started)
 
-        seekBar = findViewById(R.id.seekBar)
-        startTimeTextView = findViewById(R.id.startTimeTextView) // Your TextView for start time
-        mediaPlayer = MediaPlayer.create(this, R.raw.sample_audio)
-        handler = Handler(Looper.getMainLooper())
-
-        seekBar.max = mediaPlayer.duration
-
-        // Ensure start time updates when song starts
-        mediaPlayer.setOnPreparedListener {
-            seekBar.progress = 0
-            startTimeTextView.text = formatTime(0) // Update start time to 00:00
-            updateSeekBar()
-        }
-
-        findViewById<Button>(R.id.playButton).setOnClickListener {
-            if (!mediaPlayer.isPlaying) {
-                mediaPlayer.start()
-                updateSeekBar() // Ensure seekbar updates immediately
-            }
+        findViewById<Button>(R.id.btnGetStarted).setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("navigateTo", "sleepFragment") // Pass an extra
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) // Optional animation
+            finish() // Close this activity
         }
     }
+}
 
-    private fun updateSeekBar() {
-        runnable = object : Runnable {
-            override fun run() {
-                seekBar.progress = mediaPlayer.currentPosition
-                startTimeTextView.text = formatTime(mediaPlayer.currentPosition) // Update start time
-                handler.postDelayed(this, 500)
-            }
-        }
-        handler.postDelayed(runnable, 0) // Start updating immediately
-    }
 
-    private fun formatTime(ms: Int): String {
-        val minutes = (ms / 1000) / 60
-        val seconds = (ms / 1000) % 60
-        return String.format("%02d:%02d", minutes, seconds)
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        handler.removeCallbacks(runnable)
-        mediaPlayer.release()
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+
+    val navigateTo = intent.getStringExtra("navigateTo")
+    if (navigateTo == "sleepFragment") {
+        replaceFragment(SleepFragment())
+        binding.bottomNavigationView.selectedItemId = R.id.sleepFragment
+    } else {
+        replaceFragment(HomeFragment()) // Default fragment
     }
 }
